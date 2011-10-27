@@ -10,25 +10,25 @@ Installation
 
 1. Clone this package to the ``Packages/Application`` of your FLOW3 distribution:
 
-.. code-block:: bash
+::
 
 	git clone git://github.com/bwaidelich/REST-Test.git Wwwision.RestTest
 
 2. Activate the package:
 
-.. code-block:: bash
+::
 
 	./flow3 package:activate Wwwision.RestTest
 
 3. Apply Doctrine migrations:
 
-.. code-block:: bash
+::
 
 	./flow3 doctrine:migrate
 
 4. Activate the package SubRoutes by copying the following snippet on top of your ``Configuration/Routes.yaml`` file:
 
-.. code-block:: yaml
+::
 
 	##
 	# Wwwision.RestTest SubRoutes
@@ -47,11 +47,13 @@ Usage
 
 You can test the REST API by pointing your browser to:
 
-.. code-block:: text
+::
 
 	http://localhost/products
 
-The example allows you to simple CRUD operations on "products" via XML, JSON or the Non-Ajax-Fallback. For the example, jQuery is used to fire the GET/POST/PUT/DELETE requests, but you can of course use any REST-capable client.
+The example allows you to simple CRUD operations on "products" via XML, JSON or the Non-Ajax-Fallback.
+For this example, jQuery is used to fire the GET/POST/PUT/DELETE requests, but you can of course use any REST-capable client.
+
 Just make sure to set the right **request headers:**
 If you want to retrieve the result of an operation as XML (recommended format), you should set the ``Accept`` header to ``application/xml`` (or any other xml mime type). For json set it to ``application/json`` (or any other json mime type).
 
