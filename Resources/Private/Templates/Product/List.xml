@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+{namespace r=Wwwision\RestTest\ViewHelpers}
+<products>
+	<f:for each="{products}" as="product">
+		<product>
+			<link rel="self" href="{f:uri.action(arguments: '{product: product}', absolute: 1)}" />
+			<name>{product.name -> f:format.htmlspecialchars()}</name>
+		</product>
+	</f:for>
+</products>

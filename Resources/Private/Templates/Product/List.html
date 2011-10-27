@@ -1,0 +1,43 @@
+{namespace r=Wwwision\RestTest\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Main">
+	<f:form method="post" action="{null}" objectName="product">
+		<table>
+			<tr>
+				<th>
+					REST Tester
+				</th>
+				<th style="text-align: right">
+					AJAX <select id="ajaxMode"><option value="xml">XML</option><option value="json">JSON</option><option value="">- DISABLE -</option></select>
+				</th>
+			</tr>
+			<f:for each="{products}" as="product">
+				<tr data-identifier="{product -> r:identifier()}">
+					<td colspan="2">
+						<f:link.action arguments="{product: product}" class="get">{product.name}</f:link.action>
+					</td>
+				</tr>
+			</f:for>
+			<tr>
+				<th colspan="2" id="productLabel">New Product:</th>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<f:render partial="FormErrors" arguments="{for: 'product'}" />
+					<input type="hidden" id="identity" value="" />
+					<input type="hidden" id="uri" value="" />
+					<label for="name">Name:</label> <f:form.textfield id="name" property="name" />
+					<label for="price">Price:</label> <f:form.textfield id="price" property="price" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<f:form.submit id="post" value="Create" />
+					<input type="button" id="put" value="Update" disabled="disabled" />
+					<input type="button" id="delete" value="Delete" disabled="disabled" />
+				</td>
+			</tr>
+		</table>
+	</f:form>
+</f:section>

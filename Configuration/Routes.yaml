@@ -1,0 +1,29 @@
+#                                                                        #
+# Routes configuration                                                   #
+#                                                                        #
+# These are the SubRoutes for the FLOW3 package "Wwwision.RestTest".     #
+# Include them like this on top of your main Configuration/Routes.yaml:  #
+# -
+#  name: 'Wwwision.RestTest'
+#  uriPattern: '<RestTestSubroutes>'
+#  subRoutes:
+#    RestTest:
+#      package: Wwwision.RestTest
+#                                                                        #
+
+-
+  name: 'Single product actions'
+  uriPattern: 'products/{product}'
+  defaults:
+    @package:  Wwwision.RestTest
+    @controller: Product
+  routeParts:
+    product:
+      objectType: \Wwwision\RestTest\Domain\Model\Product
+
+-
+  name: 'Product list'
+  uriPattern: 'products'
+  defaults:
+    @package:  Wwwision.RestTest
+    @controller: Product

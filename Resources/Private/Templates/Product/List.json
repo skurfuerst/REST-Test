@@ -1,0 +1,13 @@
+{namespace r=Wwwision\RestTest\ViewHelpers}<![CDATA[{]]>
+  "products": [<f:for each="{products}" as="product" iteration="iteration">
+    <![CDATA[{]]>
+      "name": "{product.name -> f:format.urlencode()}",
+      "links": [
+        <![CDATA[{]]>
+          "rel": "self",
+          "href": "{f:uri.action(arguments: '{product: product}', absolute: 1)}"
+        }
+      ]
+    }{f:if(condition: iteration.isLast, else: ',')}</f:for>
+  ]
+}

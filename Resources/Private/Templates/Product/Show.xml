@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+{namespace r=Wwwision\RestTest\ViewHelpers}
+<product __identity="{product -> r:identifier()}">
+	<link rel="self" href="{f:uri.action(arguments: '{product: product}', absolute: 1)}" />
+	<name>{product.name -> f:format.htmlspecialchars()}</name>
+	<price>{product.price -> f:format.number()}</price>
+</product>

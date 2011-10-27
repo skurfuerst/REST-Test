@@ -1,0 +1,24 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+	<table>
+		<tr>
+			<th colspan="2">
+				{product.name}
+			</th>
+		</tr>
+		<tr>
+			<td>
+				Price
+			</td>
+			<td>
+				{product.price -> f:format.number()}
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<f:link.action action="{null}">back</f:link.action>
+			</td>
+		</tr>
+	</table>
+</f:section>

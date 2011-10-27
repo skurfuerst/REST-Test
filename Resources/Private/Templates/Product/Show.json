@@ -1,0 +1,14 @@
+{namespace r=Wwwision\RestTest\ViewHelpers}<![CDATA[{]]>
+"product":
+  <![CDATA[{]]>
+    "__identity": "{product -> r:identifier()}",
+    "name": "{product.name -> f:format.htmlspecialchars()}",
+    "price": "{product.price -> f:format.number()}",
+    "links": [
+      <![CDATA[{]]>
+        "rel": "self",
+        "href": "{f:uri.action(arguments: '{product: product}', absolute: 1)}"
+      }
+    ]
+  }
+}

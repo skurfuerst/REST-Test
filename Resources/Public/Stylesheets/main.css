@@ -1,0 +1,66 @@
+body {
+	font: 11px arial;
+	color: #333;
+	background: #ddd;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+a {
+	color: black;
+}
+a:hover {
+	text-decoration: none;
+}
+table {
+	margin: 10px;
+	width: 500px;
+	background: #f0f0f0;
+	border:  1px solid #ccc;
+}
+td, th {
+	border-right: 1px solid #ccc;
+}
+th {
+	padding: 10px 3px;
+	border-bottom: 1px solid #ccc;
+	background: white;
+	font-size: 13px;
+	font-weight: bold;
+}
+td {
+	padding: 2px 4px;
+}
+tr:nth-child(2n) td {
+	background: #e5e5e5;
+}
+input {
+	margin: 0 10px;
+	float: left;
+	width: 90px;
+}
+input[type=submit], input[type=button] {
+	margin: 5px 0;
+	border: 1px solid #ccc;
+	float: none;
+}
+label {
+	padding: 3px 5px;
+	font-weight: bold;
+	float: left;
+	clear: left;
+	width: 66px;
+}
+
+.errors {
+	margin: 5px;
+}
+.errors, .error {
+	color: #8a1f11;
+	font-weight: bold;
+}
+
+/* AJAX loading */
+body.loading {
+	opacity: 0.4;
+	background-image: url('../Images/loading.gif');
+}
