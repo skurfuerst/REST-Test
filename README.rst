@@ -57,4 +57,6 @@ For this example, jQuery is used to fire the GET/POST/PUT/DELETE requests, but y
 Just make sure to set the right **request headers:**
 If you want to retrieve the result of an operation as XML (recommended format), you should set the ``Accept`` header to ``application/xml`` (or any other xml mime type). For json set it to ``application/json`` (or any other json mime type).
 
-By default, the input stream (for POST, PUT and DELETE) is expected to be url encoded (``application/x-www-form-urlencoded``). With the ``Content-Type`` header, you can change this. Set it to ``application/xml`` if you want to push content as XML or ``application/json`` if you prefer JSON.
+Also you have to specify the ``Content-Type`` header!
+Set it to ``application/xml`` if you want to push content as XML or ``application/json`` if you prefer JSON.
+If the request type can't be determined the input stream is expected to be url encoded (``application/x-www-form-urlencoded``).
