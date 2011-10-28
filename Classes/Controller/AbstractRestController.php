@@ -16,6 +16,15 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 abstract class AbstractRestController extends \TYPO3\FLOW3\MVC\Controller\RestController {
 
 	/**
+	 * Pattern for the hypermedia type that this service produces.
+	 * This will be set as Content-Type for all responses for formats != html
+	 * The tokens '@package', '@subPackage', '@controller', '@action', '@format' and '@resourceName' will be replaced
+	 *
+	 * @var string
+	 */
+	protected $mediaTypePattern = 'application/@package.@resourceName+@format';
+
+	/**
 	 * This detects the format from the request header.
 	 * The first format that is supported by this Controller will be returned.
 	 *
@@ -30,7 +39,19 @@ abstract class AbstractRestController extends \TYPO3\FLOW3\MVC\Controller\RestCo
 			}
 		}
 		if ($format !== 'html') {
-			$this->response->setHeader('Content-Type', 'application/' . $format);
+			$contentType = $this->mediaTypePattern;
+			$contentType = strtr(
+				$contentType,
+				array(
+					'@package' => $this->request->getControllerPackageKey(),
+					'@subPackage' => $this->request->getControllerSubpackageKey(),
+					'@controller' => $this->request->getControllerName(),
+					'@action' => $this->request->getControllerActionName(),
+					'@resourceName' => $this->resourceArgumentName,
+					'@format' => $format,
+				)
+			);
+			$this->response->setHeader('Content-Type', strtolower($contentType));
 		}
 		return $format;
 	}
