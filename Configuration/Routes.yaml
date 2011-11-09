@@ -7,7 +7,7 @@
 #  name: 'Wwwision.RestTest'
 #  uriPattern: '<RestTestSubroutes>'
 #  subRoutes:
-#    RestTest:
+#    RestTestSubroutes:
 #      package: Wwwision.RestTest
 #                                                                        #
 
